@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import mermaid from 'mermaid'
+import { toPng } from 'html-to-image'
 
 setTimeout(() => {
   mermaid.initialize({
@@ -11,6 +12,19 @@ setTimeout(() => {
     },
   })
 }, 10)
+setTimeout(async () => {
+  const el = document.querySelector('.mermaid') as HTMLElement
+  if (!el) return
+  const url = await toPng(el, {
+    backgroundColor: `#fff`,
+    skipFonts: true,
+    pixelRatio: Math.max(window.devicePixelRatio || 1, 2),
+    style: {
+      margin: `0`,
+    },
+  })
+  console.log(url)
+}, 20)
 </script>
 
 <template>

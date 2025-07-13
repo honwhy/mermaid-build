@@ -12,6 +12,9 @@ export default defineConfig({
           if (id.includes('node_modules/mermaid')) {
             return 'mermaid'
           }
+          if (id.includes('html-to-image')) {
+            return 'html-to-image'
+          }
           if (id.includes('node_modules')) {
             return 'vendor'
           }
