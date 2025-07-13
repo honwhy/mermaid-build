@@ -2,6 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import mermaid from 'mermaid'
 import { toPng } from 'html-to-image'
+import readingTime from 'reading-time'
 
 setTimeout(() => {
   mermaid.initialize({
@@ -25,6 +26,11 @@ setTimeout(async () => {
   })
   console.log(url)
 }, 20)
+setTimeout(() => {
+  const markdownContent = `# Hello Mermaid`
+  const readingTimeResult = readingTime(markdownContent)
+  console.log(`Reading time: ${readingTimeResult.text}`)
+}, 30)
 </script>
 
 <template>
