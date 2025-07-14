@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+// import process from 'node:process'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // define: { process },
   plugins: [
     vue(),
     nodePolyfills({
